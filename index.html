@@ -1,51 +1,12 @@
 <!DOCTYPE html>
 <html>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="controller.js"></script>
 <body>
 
-<script>
-    var app = angular.module("myIconList", []);
-    app.controller("myIconCtrl", function($scope) {
-        $scope.icons = [
-            {
-                "age": 78,
-                "id": "joe",
-                "name": "Joe Anand",
-                "designation": "Call Women"
-
-            },
-            {
-                "age": 25,
-                "id": "cibi",
-                "name": "Sabari Cibi",
-                "designation": "Software Engineer"
-            },
-
-            {
-                "age": 81,
-                "id": "shry",
-                "name": "Shry Hary",
-                "designation": "Monk"
-            }
-
-        ]
-        $scope.addIcon = function () {
-            $scope.icons.push({
-                "age": $scope.addAge,
-                "id": $scope.addID,
-                "name": $scope.addName,
-                "designation": $scope.addDesignation
-            });
-        }
-
-        $scope.removeItem = function (x) {
-            $scope.icons.splice(x, 1);
-        }
-    });
-</script>
 
 <div ng-app="myIconList" ng-controller="myIconCtrl">
-    <h3> Coimbatore Icons</h3>
+    <h3> Coimbatore Icons </h3>
     <ul>
         <li ng-repeat="x in icons track by $index">{{x.id + " who is  " + x.age + " old is a " + x.designation }}      <span ng-click="removeItem($index)"> &times; </span></li>
 
